@@ -1,0 +1,70 @@
+# 系统配置
+system:
+  appname: ginstart
+  port: 9999
+  run-mode: debug  # release\debug
+  resource: resource/public/admin
+  db-type: sqlite
+  oss-type: local
+  use-redis: false  
+  uberlimit-count: 88  # 每秒限制88次
+  iplimit-count: 288  # IP限制次数 每60秒时288次
+  iplimit-time: 60  # IP限制，单位:秒 
+
+jwt:
+  issuer: ginstart
+  signing-key: nb666
+  expires-time: 1440   # 单位:分钟
+  buffer-time: 60      # 单位:分钟
+
+mysql:
+  path: 127.0.0.1:3306
+  username: root
+  password: 123456
+  db-name: ginstart
+  config: utf8mb4&parseTime=True&loc=Local
+  max-idle-conns: 50
+  max-open-conns: 100
+  log-mode: false
+
+sqlite:
+  db-name: ginstart
+  log-mode: false
+  config: loc=Asia/Shanghai
+
+redis:
+  addr: 127.0.0.1:6379
+  password: ""
+  db: 0
+  prefix: ""
+
+captcha:
+  key-long: 4
+  img-width: 240
+  img-height: 80
+  img-type: digit # audio\string\math\chinese\digit
+ 
+zap:
+  level: info       # debug\info\warn\error
+  format: console   # console /json
+  path: ./logs/app.log
+  max-size: 1       # 文件最大大小, M
+  max-backups: 3    # 备份数
+  max-age: 28       # 保留旧文件的最大天数
+  compress: false    # 是否压缩
+  show-line: true   # 是否显示代码行号
+
+# 本地储存
+local:
+  path: uploads/file
+  store-path: uploads/file
+
+qiniu:
+  zone: ZoneHuaDong
+  bucket: ""
+  img-path: ""
+  use-https: false
+  access-key: ""
+  secret-key: ""
+  use-cdn-domains: false
+
